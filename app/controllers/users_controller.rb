@@ -117,107 +117,107 @@ class UsersController < ApplicationController
 				@liabilities['er'] =
 				 {'outpatient_copay' => 0, 
 				  'estimated_service_charge' => 0,
-				  'outpatient_services_liability' => 0}
+				  'estimated_total_out_of_pocket_expenses_including_deductibles' => 0}
 				outpatient_copay = @user.health_plan.er
 				estimated_service_charge = 1500 * @user.health_plan.co_insurance
 				if @user.out_of_pocket_max < @user.health_plan.out_of_pocket_max	
 					if @user.deductible <= @user.health_plan.deductible
-						outpatient_services_liability = (@user.health_plan.deductible - @user.deductible) + outpatient_copay + estimated_service_charge 
+						estimated_total_out_of_pocket_expenses_including_deductibles = (@user.health_plan.deductible - @user.deductible) + outpatient_copay + estimated_service_charge 
 					elsif @user.deductible > @user.health_plan.deductible
-						outpatient_services_liability = 
+						estimated_total_out_of_pocket_expenses_including_deductibles = 
 					out_patient_copay + estimated_service_charge 
 					end
-				else outpatient_services_liability = 0
+				else estimated_service_charge = 0
 					outpatient_copay = 0
-					outpatient_services_liability = 0
+					estimated_total_out_of_pocket_expenses_including_deductibles = 0
 				end 
 				@liabilities['er']['outpatient_copay'] = outpatient_copay
 				@liabilities['er']['estimated_service_charge'] = estimated_service_charge
-				@liabilities['er']['outpatient_services_liability'] = outpatient_services_liability
+				@liabilities['er']['estimated_total_out_of_pocket_expenses_including_deductibles'] = estimated_total_out_of_pocket_expenses_including_deductibles
 				elsif type == 'urgent_care'
 					@liabilities['urgent_care'] =
 				 {'outpatient_copay' => 0, 
 				  'estimated_service_charge' => 0,
-				  'outpatient_services_liability' => 0}
+				  'estimated_total_out_of_pocket_expenses_including_deductibles' => 0}
 				  outpatient_copay = @user.health_plan.urgent_care
 				  estimated_service_charge = 500 * @user.health_plan.co_insurance
 				  if @user.out_of_pocket_max < @user.health_plan.out_of_pocket_max	
 						if @user.deductible <= @user.health_plan.deductible
-						outpatient_services_liability = (@user.health_plan.deductible - @user.deductible) + outpatient_copay + estimated_service_charge 
+						estimated_total_out_of_pocket_expenses_including_deductibles = (@user.health_plan.deductible - @user.deductible) + outpatient_copay + estimated_service_charge 
 						elsif @user.deductible > @user.health_plan.deductible
-						outpatient_services_liability = 
+						estimated_total_out_of_pocket_expenses_including_deductibles = 
 					out_patient_copay + estimated_service_charge 
 					end
-					else outpatient_services_liability = 0
+					else estimated_service_charge = 0
 					outpatient_copay = 0
-					outpatient_services_liability = 0
+					estimated_total_out_of_pocket_expenses_including_deductibles = 0
 					end 
 					@liabilities['urgent_care']['outpatient_copay'] = outpatient_copay
 				@liabilities['urgent_care']['estimated_service_charge'] = estimated_service_charge
-				@liabilities['urgent_care']['outpatient_services_liability'] = outpatient_services_liability
+				@liabilities['urgent_care']['estimated_total_out_of_pocket_expenses_including_deductibles'] = estimated_total_out_of_pocket_expenses_including_deductibles
 			elsif type == 'pharmacy_clinic'
 					@liabilities['pharmacy_clinic'] =
 				 {'outpatient_copay' => 0, 
 				  'estimated_service_charge' => 0,
-				  'outpatient_services_liability' => 0}
+				  'estimated_total_out_of_pocket_expenses_including_deductibles' => 0}
 				  outpatient_copay = @user.health_plan.pharmacy_clinic
 				  estimated_service_charge = 200 * @user.health_plan.co_insurance
 				  if @user.out_of_pocket_max < @user.health_plan.out_of_pocket_max	
 						if @user.deductible <= @user.health_plan.deductible
-						outpatient_services_liability = (@user.health_plan.deductible - @user.deductible) + outpatient_copay + estimated_service_charge 
+						estimated_total_out_of_pocket_expenses_including_deductibles = (@user.health_plan.deductible - @user.deductible) + outpatient_copay + estimated_service_charge 
 						elsif @user.deductible > @user.health_plan.deductible
-						outpatient_services_liability = 
+						estimated_total_out_of_pocket_expenses_including_deductibles = 
 					out_patient_copay + estimated_service_charge 
 					end
-					else outpatient_services_liability = 0
+					else estimated_service_charge = 0
 					outpatient_copay = 0
-					outpatient_services_liability = 0
+					estimated_total_out_of_pocket_expenses_including_deductibles = 0
 					end 
 					@liabilities['pharmacy_clinic']['outpatient_copay'] = outpatient_copay
 				@liabilities['pharmacy_clinic']['estimated_service_charge'] = estimated_service_charge
-				@liabilities['pharmacy_clinic']['outpatient_services_liability'] = outpatient_services_liability
+				@liabilities['pharmacy_clinic']['estimated_total_out_of_pocket_expenses_including_deductibles'] = estimated_total_out_of_pocket_expenses_including_deductibles
 				elsif type == 'virtual_visit'
 					@liabilities['virtual_visit'] =
 				 {'outpatient_copay' => 0, 
 				  'estimated_service_charge' => 0,
-				  'outpatient_services_liability' => 0}
+				  'estimated_total_out_of_pocket_expenses_including_deductibles' => 0}
 				  outpatient_copay = @user.health_plan.virtual_visit
 				  estimated_service_charge = 50 * @user.health_plan.co_insurance
 				  if @user.out_of_pocket_max < @user.health_plan.out_of_pocket_max	
 						if @user.deductible <= @user.health_plan.deductible
-						outpatient_services_liability = (@user.health_plan.deductible - @user.deductible) + outpatient_copay + estimated_service_charge 
+						estimated_total_out_of_pocket_expenses_including_deductibles = (@user.health_plan.deductible - @user.deductible) + outpatient_copay + estimated_service_charge 
 						elsif @user.deductible > @user.health_plan.deductible
-						outpatient_services_liability = 
+						estimated_total_out_of_pocket_expenses_including_deductibles = 
 					out_patient_copay + estimated_service_charge 
 					end
-					else outpatient_services_liability = 0
+					else estimated_service_charge = 0
 					outpatient_copay = 0
-					outpatient_services_liability = 0
+					estimated_total_out_of_pocket_expenses_including_deductibles = 0
 					end 
 					@liabilities['virtual_visit']['outpatient_copay'] = outpatient_copay
 				@liabilities['virtual_visit']['estimated_service_charge'] = estimated_service_charge
-				@liabilities['virtual_visit']['outpatient_services_liability'] = outpatient_services_liability
+				@liabilities['virtual_visit']['estimated_total_out_of_pocket_expenses_including_deductibles'] = estimated_total_out_of_pocket_expenses_including_deductibles
 			elsif type == 'walk_in_clinic'
 					@liabilities['walk_in_clinic'] =
 				 {'outpatient_copay' => 0, 
 				  'estimated_service_charge' => 0,
-				  'outpatient_services_liability' => 0}
+				  'estimated_total_out_of_pocket_expenses_including_deductibles' => 0}
 				  outpatient_copay = @user.health_plan.pcp
 				  estimated_service_charge = 100 * @user.health_plan.co_insurance
 				  if @user.out_of_pocket_max < @user.health_plan.out_of_pocket_max	
 						if @user.deductible <= @user.health_plan.deductible
-						outpatient_services_liability = (@user.health_plan.deductible - @user.deductible) + outpatient_copay + estimated_service_charge 
+						estimated_total_out_of_pocket_expenses_including_deductibles = (@user.health_plan.deductible - @user.deductible) + outpatient_copay + estimated_service_charge 
 						elsif @user.deductible > @user.health_plan.deductible
-						outpatient_services_liability = 
+						estimated_total_out_of_pocket_expenses_including_deductibles = 
 					out_patient_copay + estimated_service_charge 
 					end
-					else outpatient_services_liability = 0
+					else estimated_service_charge = 0
 					outpatient_copay = 0
-					outpatient_services_liability = 0
+					estimated_total_out_of_pocket_expenses_including_deductibles = 0
 					end 
 					@liabilities['walk_in_clinic']['outpatient_copay'] = outpatient_copay
 				@liabilities['walk_in_clinic']['estimated_service_charge'] = estimated_service_charge
-				@liabilities['walk_in_clinic']['outpatient_services_liability'] = outpatient_services_liability
+				@liabilities['walk_in_clinic']['estimated_total_out_of_pocket_expenses_including_deductibles'] = estimated_total_out_of_pocket_expenses_including_deductibles
 			end
 	
 
