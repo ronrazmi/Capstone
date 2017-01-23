@@ -1,0 +1,75 @@
+<h3> you have indicated that you are having issues with <%= params[:symptom]["symptom_name"] %> </h3>
+
+<%= form_tag '/acstriage', method: :post do %>
+
+<div>
+
+<%= label_tag 'how long have you been experiencing this? (Hours)	' %>
+<%= collection_select :duration, :duration_length, Duration.all, :length, :length %>
+
+</div>
+
+<div>
+
+<%= label_tag 'how severe is it on a scale of 1 to 10, with 10 being very severe and 1 being not severe at all?' %>
+<%= collection_select :severity, :severity_intensity, Severity.all, :intensity, :intensity %>
+
+</div>
+
+
+
+<div>
+<p> Have you ever had this before? </p>
+<%= radio_button_tag :history, 'Yes' %>
+<%= label_tag :history_yes, 'Yes' %>
+<%= radio_button_tag :history, 'No' %>
+<%= label_tag :history_no, 'No' %>
+
+
+</div>
+
+<div>
+<p> If you answered yes, answer this next question, otherwise, skip to the following question: </p>
+
+<p> When you had this before, was it related to your heart? </p>
+<%= radio_button_tag :heart_related, 'Yes' %>
+<%= label_tag :heart_related_yes, 'Yes' %>
+<%= radio_button_tag :heart_related, 'No' %>
+<%= label_tag :heart_related_no, 'No' %>
+
+<p> Do you have shortness of breath? </p>
+<%= radio_button_tag :shortness_of_breath, 'Yes' %>
+<%= label_tag :shortness_of_breath_yes, 'Yes' %>
+<%= radio_button_tag :shortness_of_breath, 'No' %>
+<%= label_tag :shortness_of_breath_no, 'No' %>
+
+
+</div>
+
+<div>
+
+<p> Do you have sweating? </p>
+<%= radio_button_tag :sweating, 'Yes' %>
+<%= label_tag :sweating_yes, 'Yes' %>
+<%= radio_button_tag :sweating, 'No' %>
+<%= label_tag :sweating_no, 'No' %>
+
+</div>
+
+<div>
+
+<p> Do you have weakness or dizziness? </p>
+<%= radio_button_tag :weakness_dizziness, 'Yes' %>
+<%= label_tag :weakness_dizziness_yes, 'Yes' %>
+<%= radio_button_tag :weakness_dizziness, 'No' %>
+<%= label_tag :weakness_dizziness_no, 'No' %>
+
+</div>
+
+<div>
+
+<%= submit_tag 'Submit Responses' %>
+
+</div>
+
+<% end %>

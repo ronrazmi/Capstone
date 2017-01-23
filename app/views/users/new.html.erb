@@ -1,0 +1,42 @@
+<h3> Welcome to Concierge. Please log in or sign up using your insurance ID number </h3>
+
+
+<%= form_tag '/users', method: :post do %>
+
+	
+	<div>
+
+	<%= label_tag :first_name %>
+	<%= text_field_tag :first_name%>
+
+</div>
+
+<div>
+
+	<%= label_tag :last_name %>
+	<%= text_field_tag :last_name %>
+
+</div>
+
+
+	<div>
+	<%= label_tag :email %>
+	<%= text_field_tag :email %>
+
+	</div>
+
+	<div>
+	<%= label_tag :health_plan_id %>
+	<%= text_field_tag :health_plan_id %>
+
+	</div>
+
+
+
+	<%= submit_tag 'Go to Signup Page' %>
+
+	<% end %>
+
+
+
+

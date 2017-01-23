@@ -1,0 +1,14 @@
+<h3> Please type what health issue is bothering you right now </h3>
+
+<%= form_tag '/firstq', method: :post do %>
+
+<div>
+
+<%= label_tag :symptom %>
+<%= collection_select :symptom, :symptom_name, Symptom.all, :name, :name %>
+
+</div>
+
+<p> <%= submit_tag 'Select' %> <p>
+
+<% end %>

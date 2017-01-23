@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  address: MyString
+  er: false
+  urgentcare: false
+  pharmacy_clinic: false
+  walk_in_clinic: false
+  concierge: false
+
+two:
+  name: MyString
+  address: MyString
+  er: false
+  urgentcare: false
+  pharmacy_clinic: false
+  walk_in_clinic: false
+  concierge: false

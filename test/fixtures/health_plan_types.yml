@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  deductible: 1
+  virtual_visit_copay: 1
+  pcp_copay: 1
+  specialist_co-pay: 1
+  er_copay: 1
+  urgent_care_copay: 1
+  co_insurance_copay: 1
+  out_of_pocket_max: 1
+
+two:
+  name: MyString
+  deductible: 1
+  virtual_visit_copay: 1
+  pcp_copay: 1
+  specialist_co-pay: 1
+  er_copay: 1
+  urgent_care_copay: 1
+  co_insurance_copay: 1
+  out_of_pocket_max: 1
