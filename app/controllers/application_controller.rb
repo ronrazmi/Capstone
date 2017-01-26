@@ -6,6 +6,13 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
+  def authenticate_user!
+  	redirect_to '/login' unless current_user
+  end
+
+  def authenticate_nurse_navigator!
+  	redirect_to '/login' unless current_user && current_user.nurse_navigator
+  end
 
 
 end

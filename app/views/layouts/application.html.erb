@@ -1,30 +1,224 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Capstone</title>
-    <%= csrf_meta_tags %>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+
+    <title>Medical Concierge Assistor</title>
+    
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/docs/styles/bootstrap.min.css" rel="stylesheet" />
+    <link href="/docs/styles/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="/preview_tabbed_form/css/preview.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href="/docs/styles/font-awesome.min.css" rel="stylesheet" />
+
+    <!--[if IE 7]>
+        <link href="styles/font-awesome-ie7.min.css" rel="stylesheet" />
+    <![endif]-->
+    <!--[if IE 8]>
+        <style type="text/css">
+        .navbar-inner{
+            filter:none;
+        }
+         </style>
+        <![endif]-->
+
+        <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
-  <body>
+</head>
 
-<ul>
+<body class="tabbable dark">
 
-<% if current_user %>
 
-<li> <a href = '/logout'> Log Out </a>
+        
+      
 
-<% else %>
+<div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <a class="brand" href="#">Medical Concierge Assistor</a>
+                <div class="nav-collapse collapse navbar-responsive-collapse">
+                    <ul class="nav">
 
-<li> <a href = '/login'> Log In </a>
-<li> <a href = '/signup'> Signup </a>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Medical Services<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-header">Align</li>
+                                <li><a href="/triage">Home Page</a></li>
+                                <li><a href="/triage">Medical Triage</a></li>
+                                
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Medical Library<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
 
-<% end %>
+                                <li><a href="http://www.mayoclinic.org/diseases-conditions" >Mayo clinic site</a></li>
+                                <li><a href="https://clinicaltrials.gov/"  data-body="">Clinical Trials</a></li>
+                                
 
-</ul>
+
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#s" class="dropdown-toggle" data-toggle="dropdown">Benefits<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+
+                            <li><a href="/benefits" >Benefits Summary</a></li>
+                            
+                            	</ul>
+                        </li>
+
+                         <ul>
+                            <% if current_user %>
+                                <li><a href="/logout" >Logout</a></li>
+                                <li> <%= current_user.first_name %> </li>
+                            <% else %>
+                                <li> <a href = '/login'> Log In </a></li>
+                                <li> <a href = '/signup'> Signup </a></li>
+                            <% end %>
+                                </ul>
+                           
+<button> <a href = "/conversations"   > Start A New Chat Conversation with a Nurse Navigator </a> </button>
+                        
+                        <li style="padding-top: 8px; color: darkgray">
+                            
+                        </li>
+                        <li></li>
+
+
+                    </ul>
+                </div>
+                <!-- /.nav-collapse -->
+            </div>
+        </div>
+        <!-- /navbar-inner -->
+    </div>
+
+        <div class="container">
+            <%= yield %>
+        </div>
+        
+        <div class="divider bottom-preview"></div>
+        <div id="demo-8" class="row-fluid">
+            <div class="span12 features">
+                <!--ul.unstyled.icons-ul>li.icon-li>i.icon-ok.icon-li-->
+                <div class="row-fluid">
+                    <div class="span6">
+                        <h4>Features</h4>
+                        <!--div.tabbable.custom-tabs.shadow.-->
+                        <ul class="unstyled icons-ul">
+
+                            <li><i class="icon-chevron-sign-right icon-li"></i>Start Your Medical Experience Here</li>
+                            <li><i class="icon-chevron-sign-right icon-li"></i>Review Your Benefits</li>
+                            <li><i class="icon-chevron-sign-right icon-li"></i>Review Your Progress with your deductible </li>
+                            <li><i class="icon-chevron-sign-right icon-li"></i>Review Your Progress with your Out of Pocket Maximum Expenditure for This Year </li>
+                            
+                                
+                                
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+
+
+            </div>
+        </div>
+        <div class="divider x-large"></div>
+        <div class="divider large"></div>
+
+    </div>
+
+
+
+    <script src="/jquery/jquery-1.9.1.min.js"></script>
+    <script src="/bootstrap/bootstrap.min.js"></script>
+    <script src="/scripts/tabs-addon.js"></script>
+
+    <script type="text/javascript">
+        $(function ()
+        {
+            $("a[href^='#demo']").click(function (evt)
+            {
+                evt.preventDefault();
+                var scroll_to = $($(this).attr("href")).offset().top;
+                $("html,body").animate({ scrollTop: scroll_to - 80 }, 600);
+            });
+            $("a[href^='#bg']").click(function (evt)
+            {
+                evt.preventDefault();
+                $("body").removeClass("light").removeClass("dark").addClass($(this).data("class")).css("background-image", "url('bgs/" + $(this).data("file") + "')");
+                console.log($(this).data("file"));
+
+
+            });
+            $("a[href^='#color']").click(function (evt)
+            {
+                evt.preventDefault();
+                var elm = $(".tabbable");
+                elm.removeClass("grey").removeClass("dark").removeClass("dark-input").addClass($(this).data("class"));
+                if (elm.hasClass("dark dark-input"))
+                {
+                    $(".btn", elm).addClass("btn-inverse");
+                }
+                else
+                {
+                    $(".btn", elm).removeClass("btn-inverse");
+
+                }
+
+            });
+            $(".color-swatch div").each(function ()
+            {
+                $(this).css("background-color", $(this).data("color"));
+            });
+            $(".color-swatch div").click(function (evt)
+            {
+                evt.stopPropagation();
+                $("body").removeClass("light").removeClass("dark").addClass($(this).data("class")).css("background-color", $(this).data("color"));
+            });
+            $("#texture-check").mouseup(function (evt)
+            {
+                evt.preventDefault();
+
+                if (!$(this).hasClass("active"))
+                {
+                    $("body").css("background-image", "url(bgs/n1.png)");
+                }
+                else
+                {
+                    $("body").css("background-image", "none");
+                }
+            });
+
+            $("a[href='#']").click(function (evt)
+            {
+                evt.preventDefault();
+
+            });
+
+            
+        });
+
+    </script>
+
+
+
  
-    <%= yield %>
-  </body>
+ 
+
+
+
+</body>
 </html>
+

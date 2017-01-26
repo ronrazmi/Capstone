@@ -1,0 +1,188 @@
+﻿
+@body-bg-color: rgb(236, 236, 236);
+@body-fg-color: rgb(69, 69, 69);
+
+@body-bg-color-1: rgb(70, 70, 70);
+@body-fg-color-1: rgb(230, 230, 230);
+
+@body-bg-color-2: rgb(130, 130, 130);
+@body-fg-color-2: rgb(245, 245, 245);
+
+@import url('../less/variable.less');
+@import url('../less/palette.less');
+
+body {
+    font-family: 'PT Sans';
+    //background-color: @body-bg-color-2;
+    background-color: rgb(172, 172, 172);
+   background-image: url(n1.png);
+    font-size: 14px;
+    color: @body-fg-color-2;
+    background-attachment: fixed;
+    .transition(.4s);
+    .container {
+        >.row-fluid > .span10 > h4 {
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            text-align: center;
+            -ms-text-shadow: none;
+            -o-text-shadow: none;
+            -moz-text-shadow: none;
+            -webkit-text-shadow: none;
+            text-shadow: none;
+        }
+    }
+
+    .heading-4 {
+        margin-bottom: 30px;
+        padding-bottom: 10px;
+        text-align: center;
+        -ms-text-shadow: none;
+        -o-text-shadow: none;
+        -moz-text-shadow: none;
+        -webkit-text-shadow: none;
+        text-shadow: none;
+    }
+
+    &.light {
+        background-color: @body-bg-color;
+        color: @body-fg-color;
+    }
+
+    &.dark {
+        background-color: @body-bg-color-1;
+        color: @body-fg-color-1;
+    }
+
+    .tabbable {
+        color: @body-fg-color;
+
+        &.dark {
+            color: rgb(230, 230, 230);
+
+            .tab-pane a {
+                color: #61CAFF;
+
+                &:hover {
+                    color: #90daff;
+                }
+            }
+        }
+
+        &.grey {
+            color: rgb(248,248,248);
+
+            .tab-pane a {
+                color: #61CAFF;
+
+                &:hover {
+                    color: #90daff;
+                }
+            }
+        }
+    }
+}
+.features{
+    background-color:rgba(0,0,0,.6);
+    .multiBoxShadow(inset 0 0 5px rgba(0,0,0,.5));
+    padding:20px;
+    .box-sizing;
+    ul{
+        li{
+            font-size:1.2em;
+            line-height:1.8em;
+            .popover{
+                color:rgb(80,80,80);
+                font-size:0.82em;
+            }
+        }
+    }
+}
+#texture-check,#papper-stack {
+    margin-top: -2px;
+    .user-select;
+    line-height: normal;
+    font-size: 0.8em;
+    padding: 1px 3px;
+
+    >[class*="icon"] {
+        visibility: hidden;
+    }
+
+    &.active {
+        >[class*="icon"] {
+            visibility: visible;
+        }
+    }
+}
+
+.divider {
+    height: 1px;
+    margin: 15px auto;
+    clear: both;
+
+    &.tiny {
+        margin: 5px;
+    }
+
+    &.small {
+        margin: 10px 0;
+    }
+
+    &.large {
+        margin: 30px auto;
+    }
+
+    &.x-large {
+        margin: 45px auto;
+    }
+
+    &.bottom-preview {
+        margin: 100px auto;
+    }
+}
+
+.map {
+    background-image: url('http://maps.google.com/maps/api/staticmap?center=37.400470,-122.072981&zoom=13&size=700x300&sensor=false');
+}
+
+.color-swatch {
+    padding-left: 5px;
+
+    >div {
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        *display: inline;
+        *padding: 3px 10px;
+        border: 1px solid rgb(230,230,230);
+        cursor: pointer;
+    }
+}
+
+@import url('../less/tabs-form.less');
+
+
+/*#region Modal */
+
+.modal-form {
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    top: 10%;
+    bottom: 0;
+    padding: 20px;
+    left: 0;
+    right: 0;
+    .boxShadowNone;
+    .box-sizing;
+    overflow:auto;
+    @media screen and (max-width:768px){
+        &{
+            padding:0 10px;
+        }
+    }
+}
+
+/*#endregion */

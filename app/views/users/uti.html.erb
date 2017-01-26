@@ -1,0 +1,95 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<h3> you have indicated that you are having issues with <%= params[:symptom]["symptom_name"] %> </h3>
+
+<%= form_tag '/utitriage', method: :post do %>
+
+<div>
+
+<%= label_tag 'how long have you been experiencing this? (days)' %>
+<%= collection_select :duration, :duration_length, Duration.all, :length, :length %>
+
+</div>
+
+<div>
+
+<%= label_tag 'how severe is it on a scale of 1 to 10, with 10 being very severe and 1 being not severe at all?' %>
+<%= collection_select :severity, :severity_intensity, Severity.all, :intensity, :intensity %>
+
+</div>
+
+
+
+<div>
+<p> Have you ever had this issue before? </p>
+<%= radio_button_tag :history, 'Yes' %>
+<%= label_tag :history_yes, 'Yes' %>
+<%= radio_button_tag :history, 'No' %>
+<%= label_tag :history_no, 'No' %>
+
+
+</div>
+
+<div>
+<p> If you answered yes, answer this next question, otherwise, skip to the following question: </p>
+
+<p> When you had this before, was it related to a urinary tract infection? </p>
+<p> <%= radio_button_tag :uti_related, 'Yes' %>
+<%= label_tag :uti_related_yes, 'Yes' %>
+<%= radio_button_tag :uti_related, 'No' %>
+<%= label_tag :uti_related_no, 'No' %> </p>
+
+<p> have you ever had sexually transmitted disease before? </p>
+<p> <%= radio_button_tag :std_related, 'Yes' %>
+<%= label_tag :std_related_yes, 'Yes' %>
+<%= radio_button_tag :std_related, 'No' %>
+<%= label_tag :std_related_no, 'No' %> </p>
+
+
+<div>
+
+<p> Do you have blood in your urine? </p>
+<p> <%= radio_button_tag :urine_blood, 'Yes' %>
+<%= label_tag :urine_blood_yes, 'Yes' %>
+<%= radio_button_tag :urine_blood, 'No' %>
+<%= label_tag :urine_blood_no, 'No' %> </p>
+
+</div>
+
+
+</div>
+
+<div>
+
+<p> Do you have fevers? </p>
+<p> <%= radio_button_tag :fevers, 'Yes' %>
+<%= label_tag :fevers_yes, 'Yes' %>
+<%= radio_button_tag :fevers, 'No' %>
+<%= label_tag :fevers_no, 'No' %> </p>
+
+</div>
+
+<div>
+
+<p> Do you have sweating or chills? </p>
+<p> <%= radio_button_tag :sweating_chills, 'Yes' %>
+<%= label_tag :sweating_chills_yes, 'Yes' %>
+<%= radio_button_tag :sweating_chills, 'No' %>
+<%= label_tag :sweating_chills_no, 'No' %> </p>
+
+</div>
+
+<div>
+
+<%= submit_tag 'Submit Responses' %>
+
+</div>
+
+<% end %>

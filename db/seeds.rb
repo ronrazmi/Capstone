@@ -123,7 +123,7 @@
 # 	{name: "chest_pain"},
 # 	{name: "shortness_of_breath"},
 # 	{name: "headache"},
-# 	{name: "burning_with"},
+# 	{name: "burning_with_urination"},
 # 	{name: "pain_with_walking"}
 # 	])
 

@@ -9,6 +9,9 @@ class User < ApplicationRecord
 	has_many :user_providers
 	has_many :providers, through: :user_providers
 	belongs_to :health_plan
+	validates :email, presence: true
+	validates :email, uniqueness: true
+	validates :password, length: {minimum: 6}
 	
 	geocoded_by :address
 	after_validation :geocode
@@ -27,17 +30,25 @@ def risk
 		risk_score += 4
 	end
 
-	# if risk_score >= 5
-	# 	return "high_risk"
-	# elsif risk_score >= 3 && risk_score < 5
-	# 	return "moderate_risk"
-	# else risk_score < 3
-	# 	return "low_risk"
-	# end
-
+	
 	return risk_score	 	
 end
 
+def uti_risk
+
+	risk_score = 0
+	if age > 65
+		risk_score += 2
+	elsif diagnoses.count >= 2
+		risk_score += 2
+	elsif medications.count >= 2
+		risk_score += 2
+	elsif diagnosis.ICD_code == "079.98"
+		risk_score += 4
+	end
+
+	return risk_score
+end
 
 end
 			
