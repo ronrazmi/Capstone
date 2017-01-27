@@ -21,7 +21,6 @@
 <%= form_tag '/firstq', method: :post do %>
 
 <div>
-
 <%= label_tag :symptom %>
 <%= collection_select :symptom, :symptom_name, Symptom.all, :name, :name %>
 

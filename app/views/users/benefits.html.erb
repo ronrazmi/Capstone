@@ -1,17 +1,31 @@
-<h3> Here is a summary of your benefits and your current status: </h3>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-<h4> Your Annual Deductible: $ <%=  @user.health_plan.deductible %> </h4>
+<h3> Here is a summary of your benefits and your current status for this year: </h3>
 
-<h4> Remaining Amount to Satisfy Your Deductible for This Year: $ <%= @user.health_plan.deductible - @user.deductible %> </h4>
+<h4> Your Annual Deductible: $  <%=  @user.health_plan.deductible %> </h4>
 
-<h4> Your Annual Deductible> <%= @user.health_plan.deductible %> </h4>
+<h4> Remaining Dollar Amount to Satisfy Your Deductible for This Year: $ <%= @user.health_plan.deductible - @user.deductible %> </h4>
 
-<h4> Your Annual Deductible> <%= @user.health_plan.deductible %> </h4>
+<h4> Your Annual Out of Pocket Maximum Dollar Amount: $<%= @user.health_plan.out_of_pocket_max %> </h4>
 
-<h4> Your Annual Deductible> <%= @user.health_plan.deductible %> </h4>
+<h4> Remaining Dollar Amount to Reach Your Maximum Out of Pocket Expenditure for This Year: $ <%= @user.health_plan.out_of_pocket_max - @user.out_of_pocket_max %> </h4>
 
-<h4> Your Annual Deductible> <%= @user.health_plan.deductible %> </h4>
+<hr>
 
-<h4> Your Annual Deductible> <%= @user.health_plan.deductible %> </h4>
+<h4> Your Co-Pay for ER Visits: $ <%= @user.health_plan.er %> </h4>
 
-<h4> Your Annual Deductible> <%= @user.health_plan.deductible %> </h4>
+<h4> Your Co-Pay for Urgent Care Visits: $ <%= @user.health_plan.urgent_care %>  </h4>
+
+<h4> Your Co-Pay for Primary Care Visits: $ <%= @user.health_plan.pcp %>  </h4>
+<h4> Your Co-Pay for Specialist Visits: $ <%= @user.health_plan.specialist %>  </h4>
+
+<h4> Your Co-Pay for Pharmacy Clinics: $ <%= @user.health_plan.pharmacy_clinic %>  </h4>
+
+<h4> Your Co-Pay for Virtual Visits: $  <%= @user.health_plan.virtual_visit %>  </h4>

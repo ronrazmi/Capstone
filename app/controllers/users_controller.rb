@@ -59,6 +59,7 @@ class UsersController < ApplicationController
 	def acs
 		@user = current_user
 		baseline_risk_score = @user.risk
+		p baseline_risk_score
 		if params[:duration][:duration_length].to_i < 2
 			baseline_risk_score += 1
 		elsif params[:duration][:duration_length].to_i > 2 && params[:duration][:duration_length].to_i  < 6

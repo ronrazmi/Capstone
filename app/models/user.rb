@@ -22,13 +22,19 @@ def risk
 	risk_score = 0
 	if age > 55
 		risk_score += 2
-	elsif diagnoses.count >= 2
-		risk_score += 2
-	elsif medications.count >= 2
-		risk_score += 2
-	elsif diagnosis.ICD_code == "E11" || diagnosis.ICD_code == "414.01" || diagnosis.ICD_code == "401.1" || diagnosis.ICD_code == "034.0"
-		risk_score += 4
 	end
+	if diagnoses.count >= 2
+		risk_score += 2
+	end
+	if medications.count >= 2
+		risk_score += 2
+	end
+	diagnoses.each do |diagnosis|
+		
+		if diagnosis.ICD_code == "E11" || diagnosis.ICD_code == "414.01" || diagnosis.ICD_code == "401.1" || diagnosis.ICD_code == "034.0"
+		risk_score += 4
+		end
+	end	
 
 	
 	return risk_score	 	
@@ -39,12 +45,17 @@ def uti_risk
 	risk_score = 0
 	if age > 65
 		risk_score += 2
-	elsif diagnoses.count >= 2
+	end
+	if diagnoses.count >= 2
 		risk_score += 2
-	elsif medications.count >= 2
+	end
+	if medications.count >= 2
 		risk_score += 2
-	elsif diagnosis.ICD_code == "079.98"
+	end
+	diagnoses.each do |diagnosis|
+		if diagnosis.ICD_code == "079.98"
 		risk_score += 4
+		end
 	end
 
 	return risk_score

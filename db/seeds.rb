@@ -120,11 +120,11 @@
 # 	])
 
 # Symptom.create([
-# 	{name: "chest_pain"},
-# 	{name: "shortness_of_breath"},
+# 	{name: "chest pain"},
+# 	{name: "shortness of breath"},
 # 	{name: "headache"},
-# 	{name: "burning_with_urination"},
-# 	{name: "pain_with_walking"}
+# 	{name: "burning with urination"},
+# 	{name: "pain with walking"}
 # 	])
 
 # Duration.create([

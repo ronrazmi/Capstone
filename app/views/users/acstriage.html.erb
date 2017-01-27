@@ -8,18 +8,18 @@
 <br>
 
 
-<h3> Based on your answers these are your options for receiving care for your current issue </h3>
+<h3> Based on your answers, these are your options for receiving care for your current issue: </h3>
 
-<%= @user.first_name + " " + @user.last_name %>
+<h4> <%= @user.first_name + " " + @user.last_name %> </h4>
 
-<p> risk score:  <%= @final_risk_score %> </p> 
-
-<p> youe risk category: <%= @risk_level %> </p>
+<h3> Based on your past medical history and your current symptoms, your risk level appears to be: <STRONG> <%= @risk_level %> </h3>
 
 <p> Appropriate type of settings for your care are: </p>
 <h4><%= @care_place %> </h4>
 
-<p> here are is the closest medical center to you that have <%= @care_place %> and how far it is from you: </p>
+<hr>
+
+<p> Here are is the closest medical center to you that have <%= @care_place %> and how far it is from you: </p>
 
  <h3> <%= @closest_care_setting.name %>: 
  <%= @closest_distance  %> Miles </h3>
@@ -27,7 +27,7 @@
  
 
 
-<p> Here are all of the medical centers that offer <%= @care_place %> for your issue </p>
+<p> Here are all of the nearby medical centers that offer <%= @care_place %> for your issue </p>
  <% @care_setting.each do |setting|  %>
  <hr>
  <p> <%= setting.name %> </p>
@@ -41,13 +41,13 @@
  
  <% @liabilities.each do |type, payment| %>
  <hr>
- <% type = type.gsub '_', ' ' %> 
+ <%  type = type.gsub '_', ' ' %> 
 <h4> <%= type %> </h4>
 
  <% payment.each do |paytype, amount| %>
  <% paytype = paytype.gsub '_', ' ' %> 
-<p> <%= paytype %>
- <%= amount  %> </p>
+<p>  <%= paytype %>
+ $ <%= amount  %> </p>
 
  <% end %>
  <% end %>
