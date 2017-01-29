@@ -54,3 +54,6 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'geocoder'
 
 gem 'seed_dump'
+
+gem 'rails_12factor', group: :production
+

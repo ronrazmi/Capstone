@@ -45,9 +45,9 @@ class UsersController < ApplicationController
 
 	def question_one
 		@user = current_user
-		if params[:symptom][:symptom_name] == "burning_with_urination"
+		if params[:symptom][:symptom_name] == "burning with urination"
 			render "uti.html.erb"
-		elsif params[:symptom][:symptom_name] == "chest_pain" || "shortness_of_breath"
+		elsif params[:symptom][:symptom_name] == "chest pain" || "shortness of breath"
 			render "acs.html.erb"
 		
 		end
@@ -63,7 +63,7 @@ class UsersController < ApplicationController
 		if params[:duration][:duration_length].to_i < 2
 			baseline_risk_score += 1
 		elsif params[:duration][:duration_length].to_i > 2 && params[:duration][:duration_length].to_i  < 6
-			baseline_risk_score += 2
+			baseline_risk_score += 2	
 		end
 
 		intermediate_risk_score = baseline_risk_score                
